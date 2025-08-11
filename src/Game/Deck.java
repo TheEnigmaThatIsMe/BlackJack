@@ -12,13 +12,16 @@ import java.util.List;
 public class Deck {
 
     private List<Card> deck;
+    private int numberOfDecks;
 
-    public Deck() {
-        // Assumes single deck, but could multiply by number of decks
-        deck = new ArrayList<>(52);
-        for(var suit : Suit.values()) {
-            for(var rank : Rank.values()) {
-                deck.add(new Card(suit, rank));
+    public Deck(int numberOfDecks) {
+        this.numberOfDecks = numberOfDecks;
+        deck = new ArrayList<>(52 * numberOfDecks);
+        for(int i = 0; i < numberOfDecks; i++) {
+            for(var suit : Suit.values()) {
+                for(var rank : Rank.values()) {
+                    deck.add(new Card(suit, rank));
+                }
             }
         }
 
@@ -32,7 +35,7 @@ public class Deck {
     public Card dealCard() {
         if (deck.isEmpty()) {
             System.out.println("Reshuffling deck");
-            new Deck();
+            new Deck(numberOfDecks);
         }
         return deck.removeFirst();
     }
