@@ -7,18 +7,30 @@ import java.util.Scanner;
 
 public class BlackjackGame {
     private Deck deck;
-    private Player player;
-    private Dealer dealer;
+    private final Player player;
+    private final Dealer dealer;
     public Scanner scanner;
 
     public BlackjackGame() {
-        deck = new Deck();
         player = new Player();
         dealer = new Dealer();
         scanner = new Scanner(System.in);
     }
 
+    public void newDeck(int numOfDecks) {
+        deck = new Deck(numOfDecks);
+    }
+
+    public boolean isDeckReady() {
+        return deck != null;
+    }
+
     public void startRound() {
+        if(!isDeckReady()) {
+            System.out.println("Deck isn't ready!");
+            return;
+        }
+
         // Clear hands from previous rounds
         player.getHand().clear();
         dealer.getHand().clear();

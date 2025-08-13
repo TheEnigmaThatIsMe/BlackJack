@@ -11,11 +11,13 @@ import java.util.Random;
 // Represents a deck of cards
 public class Deck {
 
-    private List<Card> deck;
+    private final List<Card> deck;
+    private final int numberOfDecks;
 
-    public Deck() {
-        // Assumes single deck, but could multiply by number of decks
-        deck = new ArrayList<>(52);
+    public Deck(int numberOfDecks) {
+        this.numberOfDecks = numberOfDecks;
+        deck = new ArrayList<>(52 * numberOfDecks);
+
         resetAndShuffle();
     }
 
@@ -29,9 +31,11 @@ public class Deck {
 
     private void resetAndShuffle() {
         deck.clear();
-        for (var suit : Suit.values()) {
-            for (var rank : Rank.values()) {
-                deck.add(new Card(suit, rank));
+        for(int i = 0; i < numberOfDecks; i++) {
+            for (var suit : Suit.values()) {
+                for (var rank : Rank.values()) {
+                    deck.add(new Card(suit, rank));
+                }
             }
         }
         shuffle(deck);
