@@ -37,7 +37,7 @@ When the deck runs out of cards, it automatically **refills and reshuffles**.
 ## **How to Run**
 
 ### **Prerequisites**
-- Java 24+ installed ([Download Java](https://adoptium.net/))
+- Java 24+ installed ([Download Java](https://jdk.java.net/24/))
 - A terminal or IDE (IntelliJ IDEA, Eclipse, or VS Code with Java extension)
 
 ### **Steps**
