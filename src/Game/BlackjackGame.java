@@ -43,7 +43,8 @@ public class BlackjackGame {
         dealer.hit(deck);
 
         System.out.println("--- New Round ---");
-        System.out.println("Dealer's visible card: " + dealer.getHand().getCards().getFirst());
+        var dealerFaceCard = dealer.getHand().getCards().getFirst();
+        System.out.println("Dealer's visible card: " + dealer.getHand().getCards().getFirst() + " (Value: " + dealerFaceCard.getValue() + ")");
         System.out.println("Your hand: " + player.getHand().getCards() + " (Value: " + player.getHand().getValue() + ")");
 
         // Player's turn
