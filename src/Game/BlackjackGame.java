@@ -70,6 +70,10 @@ public class BlackjackGame {
     private void playerTurn() {
         String choice;
         while (true) {
+            if(player.getHand().getValue() == 21) {
+                break;
+            }
+
             System.out.print("Do you want to hit or stand? (h/s): ");
             choice = scanner.nextLine().toLowerCase();
 
